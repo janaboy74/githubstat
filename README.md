@@ -1,0 +1,2 @@
+# githubstat
+Get github statistics.
