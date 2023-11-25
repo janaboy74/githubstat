@@ -283,7 +283,7 @@ void getstats( const char *user, const char *repo ) {
         curl_easy_perform( curl );
         curl_easy_cleanup( curl );
 #if USE_CACHE
-        fd = ::open( filename, O_CREAT | O_TRUNC | O_WRONLY | O_BINARY, 0777 );
+        fd = ::open( filename, O_CREAT | O_TRUNC | O_WRONLY | O_BINARY, 0666 );
         size_t writtenBytes = ::write( fd, &result.front(), result.size() );
         close( fd );
         if( result.size() != writtenBytes )
