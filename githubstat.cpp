@@ -159,7 +159,7 @@ class json {
             // parsing the nodes and writing it into json structure
             //--------------------------------
             shared_ptr<jsonItem> curItem;
-            if( text.size() || ( text.size() && text.front() != "[" )) {
+            if( !text.size() || text.front() != "[" ) {
                 main = make_shared<jsonItem>();
                 node.push_back( main );
                 curItem = node.back();
@@ -240,6 +240,9 @@ class json {
                     cout << "Parser error / invalid json source\n";
                 }
             }
+        }
+        bool isEmpty() {
+            return !( main->nodes.size() || main->subItems.size() || main->nodes.size() );
         }
 } json;
 
