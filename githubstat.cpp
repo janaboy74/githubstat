@@ -31,11 +31,11 @@ struct corestring : public string {
             va_list cova;
             va_copy( cova, arg_list );
             int size = vsnprintf( NULL, 0, format, cova );
-            va_end( arg_list );
+            va_end( cova );
             resize( size );
             va_copy( cova, arg_list );
             vsnprintf( &at( 0 ), size + 1, format, cova );
-            va_end( arg_list );
+            va_end( cova );
         }
     }
     void format( const char *format, ... ) {
